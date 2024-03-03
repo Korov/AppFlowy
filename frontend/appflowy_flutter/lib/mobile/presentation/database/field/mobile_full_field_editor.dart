@@ -14,6 +14,7 @@ import 'package:appflowy/plugins/database/application/field/type_option/number_f
 import 'package:appflowy/plugins/database/grid/presentation/widgets/header/type_option/date/date_time_format.dart';
 import 'package:appflowy/plugins/database/widgets/cell_editor/extension.dart';
 import 'package:appflowy/util/field_type_extension.dart';
+import 'package:appflowy_backend/log.dart';
 import 'package:appflowy_backend/protobuf/flowy-database2/protobuf.dart';
 import 'package:collection/collection.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -266,6 +267,7 @@ class _MobileFieldEditorState extends State<MobileFieldEditor> {
   }
 
   List<Widget> _buildOption() {
+    Log.error('hoverOnWidget error: $values.type');
     switch (values.type) {
       case FieldType.Number:
         return [
@@ -497,7 +499,7 @@ class _DateOptionState extends State<_DateOption> {
   @override
   void initState() {
     super.initState();
-
+    Log.error("initState");
     selectedFormat = widget.selectedFormat;
   }
 
